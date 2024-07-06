@@ -1,6 +1,7 @@
 package py.com.lincoln.todo_list_application.services;
 
 
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +11,7 @@ import py.com.lincoln.todo_list_application.exceptions.GeneralServiceException;
 import py.com.lincoln.todo_list_application.exceptions.NoDataFoundException;
 import py.com.lincoln.todo_list_application.exceptions.ValidateServiceException;
 import py.com.lincoln.todo_list_application.repository.UsuariosRepository;
+import py.com.lincoln.todo_list_application.validators.UsuariosValidator;
 
 import java.util.List;
 
@@ -47,6 +49,16 @@ public class UsuariosService {
             log.error(e.getMessage(), e);
             throw new GeneralServiceException(e.getMessage(), e);
         }
+    }
+
+    @Transactional
+    public Usuarios create(Usuarios usuario){
+
+        UsuariosValidator.save(usuario);
+
+        Usuarios nuevoUsuario = usuarioRepo.save(usuario);
+        return nuevoUsuario;
+
     }
 
 

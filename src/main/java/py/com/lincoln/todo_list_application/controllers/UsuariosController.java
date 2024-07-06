@@ -45,4 +45,12 @@ public class UsuariosController {
                 .createResponse(HttpStatus.OK);
     }
 
+    @PostMapping(value="/usuarios")
+    public ResponseEntity<UsuariosDTO> create(@RequestBody UsuariosDTO usuario){
+        Usuarios nuevoUsuario = usuarioService.create(converter.fromDTO(usuario));
+        UsuariosDTO usuarioDTO = converter.fromEntity(nuevoUsuario);
+        return new ResponseEntity<UsuariosDTO>(usuarioDTO, HttpStatus.CREATED);
+
+    }
+
 }
