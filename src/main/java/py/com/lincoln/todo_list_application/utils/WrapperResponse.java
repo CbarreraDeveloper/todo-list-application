@@ -1,4 +1,4 @@
-package py.com.lincoln.utils;
+package py.com.lincoln.todo_list_application.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

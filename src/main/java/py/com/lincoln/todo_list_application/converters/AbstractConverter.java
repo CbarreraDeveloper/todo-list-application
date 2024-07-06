@@ -1,4 +1,4 @@
-package py.com.lincoln.converters;
+package py.com.lincoln.todo_list_application.converters;
 
 import java.util.List;
 import java.util.stream.Collectors;

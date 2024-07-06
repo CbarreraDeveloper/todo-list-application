@@ -1,8 +1,8 @@
-package py.com.lincoln.converters;
+package py.com.lincoln.todo_list_application.converters;
 
 
-import py.com.lincoln.dtos.UsuariosDTO;
-import py.com.lincoln.entity.Usuarios;
+import py.com.lincoln.todo_list_application.dtos.UsuariosDTO;
+import py.com.lincoln.todo_list_application.entity.Usuarios;
 
 public class UsuariosConverter extends AbstractConverter<Usuarios, UsuariosDTO>{
 

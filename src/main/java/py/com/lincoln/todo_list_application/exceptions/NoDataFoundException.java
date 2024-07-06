@@ -1,4 +1,4 @@
-package py.com.lincoln.exceptions;
+package py.com.lincoln.todo_list_application.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

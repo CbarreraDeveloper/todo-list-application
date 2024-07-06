@@ -1,4 +1,4 @@
-package py.com.lincoln.config;
+package py.com.lincoln.todo_list_application.config;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import py.com.lincoln.exceptions.GeneralServiceException;
-import py.com.lincoln.exceptions.NoDataFoundException;
-import py.com.lincoln.exceptions.ValidateServiceException;
-import py.com.lincoln.utils.WrapperResponse;
+import py.com.lincoln.todo_list_application.exceptions.GeneralServiceException;
+import py.com.lincoln.todo_list_application.exceptions.NoDataFoundException;
+import py.com.lincoln.todo_list_application.exceptions.ValidateServiceException;
+import py.com.lincoln.todo_list_application.utils.WrapperResponse;
 
 @Slf4j
 @ControllerAdvice

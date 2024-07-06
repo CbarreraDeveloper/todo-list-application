@@ -1,4 +1,4 @@
-package py.com.lincoln.dtos;
+package py.com.lincoln.todo_list_application.dtos;
 
 import lombok.Builder;
 import lombok.Getter;

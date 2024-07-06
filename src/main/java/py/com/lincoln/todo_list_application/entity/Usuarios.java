@@ -1,4 +1,4 @@
-package py.com.lincoln.entity;
+package py.com.lincoln.todo_list_application.entity;
 
 import jakarta.persistence.*;
 
