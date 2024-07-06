@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import py.com.lincoln.todo_list_application.dtos.TareasDTO;
 import py.com.lincoln.todo_list_application.entity.Tareas;
 import py.com.lincoln.todo_list_application.entity.Usuarios;
 import py.com.lincoln.todo_list_application.exceptions.GeneralServiceException;
@@ -11,8 +12,6 @@ import py.com.lincoln.todo_list_application.exceptions.NoDataFoundException;
 import py.com.lincoln.todo_list_application.exceptions.ValidateServiceException;
 import py.com.lincoln.todo_list_application.repository.TareasRepository;
 import py.com.lincoln.todo_list_application.repository.UsuariosRepository;
-import py.com.lincoln.todo_list_application.validators.TareasValidator;
-import py.com.lincoln.todo_list_application.validators.UsuariosValidator;
 
 import java.util.List;
 
@@ -54,5 +53,18 @@ public class TareasServices {
         return tareaRepo.save(tarea);
     }
 
+
+    public Tareas update(Long tareaId, TareasDTO tareaDTO) {
+        Tareas tareaExistente = tareaRepo.findById(tareaId)
+                .orElseThrow(() -> new NoDataFoundException("La tarea no existe"));
+
+        Usuarios usuario = usuarioRepo.findById(tareaDTO.getUsuarioId())
+                .orElseThrow(() -> new NoDataFoundException("El usuario no existe"));
+
+        tareaExistente.setDescripcion(tareaDTO.getDescripcion());
+        tareaExistente.setUsuario(usuario);
+
+        return tareaRepo.save(tareaExistente);
+    }
 
 }

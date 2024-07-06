@@ -40,7 +40,6 @@ public class TareasController {
     }
 
     @PostMapping("/usuarios/{usuarioId}/tareas")
-
     public ResponseEntity<WrapperResponse<Tareas>>  create(
             @PathVariable("usuarioId") Long usuarioId,
             @RequestBody Tareas tarea){
@@ -49,6 +48,16 @@ public class TareasController {
         return new WrapperResponse<>(true, "Tarea creada exitosamente", nuevaTarea)
                 .createResponse(HttpStatus.CREATED);
 
+    }
+
+    @PutMapping("/tareas/{tareaId}")
+    public ResponseEntity<WrapperResponse<Tareas>> updateTarea(
+            @PathVariable("tareaId") Long tareaId,
+            @RequestBody TareasDTO tareaDTO
+    ) {
+        Tareas tareaActualizada = tareaService.update(tareaId, tareaDTO);
+        return new WrapperResponse<>(true, "Tarea actualizada exitosamente", tareaActualizada)
+                .createResponse(HttpStatus.OK);
     }
 
 }
